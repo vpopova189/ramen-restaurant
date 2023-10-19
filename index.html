@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ramen Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delius+Unicase:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #c41919;
+        margin: 0;
+      }
+
+      /*NAVIGATION*/
+      nav {
+        display: flex;
+        justify-content: space-between;
+        background-color: #f3f3f3;
+        font-family: "Delius Unicase", cursive;
+      }
+      nav ul {
+        display: flex;
+        justify-content: space-around;
+        margin-right: 210px;
+      }
+      ul li {
+        list-style: none;
+        margin-right: 1em;
+        margin-left: 20px;
+        font-size: 20px;
+      }
+      ul li a {
+        text-decoration: none;
+        color: black;
+      }
+
+      li:hover {
+        color: rgb(228, 58, 30);
+        cursor: pointer;
+      }
+      .logo {
+        margin-left: 100px;
+      }
+      /*HERO SECTION*/
+      .container {
+        display: flex;
+        justify-content: space-around;
+        background-color: #f3f3f3;
+        padding-left: 100px;
+        padding-right: 100px;
+      }
+
+      .red {
+        color: #c41919;
+      }
+      .happiness {
+        font-size: 58px;
+        padding-bottom: 25px;
+        font-family: "Delius Unicase", cursive;
+      }
+      .japramen {
+        font-size: 50px;
+      }
+      .whyramen {
+        padding-bottom: 20px;
+        font-size: 15px;
+        font-family: "Delius Unicase", cursive;
+        line-height: 2;
+        font-weight: 600;
+      }
+      /*BUTTONS*/
+      button {
+        background-color: #f3f3f3;
+        color: #c41919;
+        border-radius: 4px;
+        border-color: #c41919;
+        padding: 15px 30px;
+        font-size: 20px;
+        transition: all 200ms ease-in-out;
+        font-family: "Delius Unicase", cursive;
+      }
+      button:hover {
+        background-color: #c41919;
+        color: #fdd963;
+        cursor: pointer;
+      }
+      /*MENU SCROLL*/
+      .marquee {
+        display: flex;
+        overflow: hidden;
+        gap: 1rem;
+        position: relative;
+        user-select: none;
+      }
+      .marquee-content {
+        flex-shrink: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        min-width: 100%;
+        gap: 1rem;
+      }
+
+      @keyframes scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(calc(-100% - 1rem));
+        }
+      }
+
+      .scroll {
+        animation: scroll 28s linear infinite;
+      }
+
+      /*LOCATION & HOURS*/
+      .locationHours {
+        background-color: #f3f3f3;
+        display: flex;
+        justify-content: space-around;
+        color: black;
+        font-family: "Delius Unicase", cursive;
+        padding: 0px 200px;
+        padding-bottom: 80px;
+      }
+
+      .hours {
+        padding: 0;
+        display: flex;
+        line-height: 1.5;
+      }
+      .time {
+        padding-left: 30px;
+      }
+      h3 {
+        padding-top: 50px;
+        font-size: 25px;
+        color: #c41919;
+      }
+      iframe {
+        padding-top: 100px;
+      }
+
+      /*FOOTER*/
+      .footer {
+        color: white;
+        font-family: "Delius Unicase", cursive;
+        text-align: center;
+        padding: 40px;
+      }
+      .contact {
+        color: white;
+        background-color: #c41919;
+        font-family: "Delius Unicase", cursive;
+        text-align: center;
+        font-size: 15px;
+        padding: 20px 0px;
+      }
+      .icons {
+        display: flex;
+        justify-content: space-around;
+        margin: 0px 500px;
+        background-color: #c41919;
+        padding-bottom: 20px;
+      }
+      .icons img:hover {
+        cursor: pointer;
+      }
+      /* WEB RESPONSIVENESS*/
+      @media only screen and (max-width: 1439px) {
+        .container {
+          padding-bottom: 25px;
+          padding-left: 50px;
+          padding-right: 50px;
+        }
+      }
+      @media only screen and (max-width: 1340px) {
+        .ramenBowl {
+          padding-top: 30px;
+          width: 500;
+        }
+      }
+      @media only screen and (max-width: 1216px) {
+        .ramenBowl {
+          padding-top: 60px;
+          width: 500;
+        }
+        .happiness {
+          font-size: 40px;
+        }
+      }
+      @media only screen and (max-width: 1181px) {
+        .locationHours {
+          padding: 0px 40px;
+          padding-bottom: 80px;
+        }
+        .ramenBowl {
+          padding-top: 60px;
+          width: 500px;
+        }
+      }
+      @media only screen and (max-width: 1024px) {
+        html,
+        body {
+          overflow-x: hidden;
+        }
+        .whyramen {
+          font-size: 12px;
+        }
+        .happiness {
+          font-size: 35px;
+        }
+        .container {
+          padding-bottom: 25px;
+          padding-left: 50px;
+          padding-right: 50px;
+        }
+        .ramenBowl {
+          width: 450px;
+          padding-top: 40px;
+        }
+        .japramen {
+          font-size: 40px;
+        }
+        .logo {
+          margin-left: 50px;
+        }
+        nav ul {
+          margin-right: 100px;
+        }
+        .locationHours {
+          padding: 0px 40px;
+          padding-bottom: 80px;
+        }
+        .icons {
+          margin: 0px 300px;
+        }
+      }
+      @media only screen and (max-width: 888px) {
+        .locationHours {
+          padding: 0px 40px;
+          padding-bottom: 80px;
+        }
+        .iframe {
+          width: 250px;
+          height: 300px;
+        }
+      }
+      @media only screen and (max-width: 854px) {
+        .locationHours {
+          padding: 0px 40px;
+          display: block;
+          text-align: center;
+          padding-bottom: 80px;
+        }
+        .hours {
+          justify-content: center;
+        }
+        .iframe {
+          width: 250px;
+          height: 300px;
+        }
+      }
+      @media only screen and (max-width: 768px) {
+        html,
+        body {
+          overflow-x: hidden;
+        }
+        .whyramen {
+          font-size: 10px;
+        }
+        .happiness {
+          font-size: 25px;
+        }
+        .container {
+          padding-bottom: 25px;
+          padding-left: 50px;
+          padding-right: 50px;
+        }
+        .ramenBowl {
+          width: 350px;
+          padding-top: 75px;
+        }
+        .japramen {
+          font-size: 30px;
+        }
+        .logo {
+          margin-left: 50px;
+        }
+        nav ul {
+          margin-right: 75px;
+        }
+        .locationHours {
+          padding: 0px 20px;
+          padding-bottom: 50px;
+          display: block;
+          text-align: center;
+          font-size: 15px;
+        }
+        .hours {
+          justify-content: center;
+        }
+        .icons {
+          margin: 0px 200px;
+        }
+        .floatingRamen {
+          width: 150px;
+          height: 150px;
+        }
+        .iframe {
+          width: 250px;
+          height: 300px;
+        }
+      }
+      @media only screen and (max-width: 590px) {
+        html,
+        body {
+          overflow-x: hidden;
+        }
+        .japramen {
+          display: none;
+        }
+        .whyramen {
+          font-size: 12px;
+        }
+        .happiness {
+          font-size: 37px;
+        }
+        .container {
+          padding-bottom: 25px;
+          padding-left: 50px;
+          padding-right: 50px;
+          display: block;
+          text-align: center;
+        }
+        .ramenBowl {
+          width: 300px;
+          padding-top: 20px;
+        }
+        .japramen {
+          font-size: 30px;
+        }
+        .logo {
+          margin-left: 20px;
+        }
+
+        .locationHours {
+          font-size: 15px;
+          display: block;
+          text-align: center;
+        }
+        .hours {
+          justify-content: center;
+        }
+        .iframe {
+          width: 250px;
+          height: 300px;
+        }
+        .footer {
+          font-size: 15px;
+        }
+        .contact {
+          font-size: 10px;
+        }
+        .icons {
+          margin: 0px 100px;
+        }
+        .floatingRamen {
+          width: 150px;
+          height: 150px;
+        }
+        nav ul li {
+          font-size: 15px;
+          line-height: 3;
+        }
+      }
+      @media only screen and (max-width: 425px) {
+        html,
+        body {
+          overflow-x: hidden;
+        }
+        .japramen {
+          display: none;
+        }
+        .whyramen {
+          font-size: 12px;
+        }
+        .happiness {
+          font-size: 37px;
+        }
+        .container {
+          padding-bottom: 25px;
+          padding-left: 50px;
+          padding-right: 50px;
+          display: block;
+          text-align: center;
+        }
+        .ramenBowl {
+          width: 300px;
+          padding-top: 20px;
+        }
+        .japramen {
+          font-size: 30px;
+        }
+        .logo {
+          margin-left: 20px;
+        }
+
+        .locationHours {
+          font-size: 15px;
+          display: block;
+          text-align: center;
+        }
+        .hours {
+          justify-content: center;
+        }
+        .iframe {
+          width: 250px;
+          height: 300px;
+        }
+        .footer {
+          font-size: 15px;
+        }
+        .contact {
+          font-size: 10px;
+        }
+        .icons {
+          margin: 0px 100px;
+        }
+        .floatingRamen {
+          width: 150px;
+          height: 150px;
+        }
+        nav ul li {
+          font-size: 15px;
+          line-height: 3;
+        }
+      }
+      @media only screen and (max-width: 363px) {
+        html,
+        body {
+          overflow-x: hidden;
+        }
+        .japramen {
+          display: none;
+        }
+        .whyramen {
+          font-size: 12px;
+        }
+        .happiness {
+          font-size: 37px;
+        }
+        .container {
+          padding-bottom: 25px;
+          padding-left: 50px;
+          padding-right: 50px;
+          display: block;
+          text-align: center;
+        }
+        .ramenBowl {
+          width: 200px;
+          padding-top: 20px;
+        }
+        .japramen {
+          font-size: 30px;
+        }
+        .logo {
+          margin-left: 20px;
+        }
+
+        .locationHours {
+          font-size: 15px;
+          display: block;
+          text-align: center;
+        }
+        .hours {
+          justify-content: center;
+        }
+        .iframe {
+          width: 250px;
+          height: 300px;
+        }
+        .footer {
+          font-size: 15px;
+        }
+        .contact {
+          font-size: 10px;
+        }
+        .icons {
+          margin: 0px 25px;
+        }
+        .floatingRamen {
+          width: 150px;
+          height: 150px;
+        }
+        nav ul {
+          display: none;
+        }
+      }
+      @media only screen and (max-width: 280px) {
+        html,
+        body {
+          overflow-x: hidden;
+        }
+        .japramen {
+          display: none;
+        }
+        .whyramen {
+          font-size: 10px;
+        }
+        .happiness {
+          font-size: 25px;
+        }
+        .container {
+          padding-bottom: 25px;
+          padding-left: 50px;
+          padding-right: 50px;
+          display: block;
+          text-align: center;
+        }
+        .ramenBowl {
+          width: 200px;
+          padding-top: 20px;
+        }
+        .japramen {
+          font-size: 30px;
+        }
+        .logo {
+          margin-left: 20px;
+        }
+
+        .locationHours {
+          font-size: 15px;
+          display: block;
+          text-align: center;
+        }
+        .hours {
+          justify-content: center;
+        }
+        .iframe {
+          width: 250px;
+          height: 300px;
+        }
+        .footer {
+          font-size: 15px;
+        }
+        .contact {
+          font-size: 10px;
+        }
+        .icons {
+          margin: 0px 25px;
+        }
+        .floatingRamen {
+          width: 150px;
+          height: 150px;
+        }
+        nav ul {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVIGATION BAR-->
+    <nav>
+      <a href="Ramen.html">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/849/original/RAMENLOGO.png?1696960972"
+          width="60"
+          class="logo"
+        />
+      </a>
+      <ul>
+        <li>HOME</li>
+        <li>MENU</li>
+        <li>ABOUT</li>
+      </ul>
+    </nav>
+    <div class="container">
+      <div class="description">
+        <div>
+          <h2 class="japramen">ラーメン</h2>
+        </div>
+        <div>
+          <div class="happiness">
+            MAKE YOUR OWN<br />
+            <span class="red">BOWL OF HAPPINESS</span>
+          </div>
+          <div class="whyramen">
+            There's something truly magical about a steaming bowl of ramen. It's
+            not just food; <span class="red">it's an experience</span>, a
+            journey through a world of flavors and textures that never ceases to
+            amaze me. Ramen is not just a dish; it's my
+            <span class="red">comfort</span>, my
+            <span class="red">solace</span>, and my
+            <span class="red">culinary love affair</span>.
+          </div>
+          <br />
+          <button>ORDER NOW</button>
+        </div>
+      </div>
+      <div class="picture">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/850/original/Dapper.png?1696961004"
+          width="600"
+          class="ramenBowl"
+        />
+      </div>
+    </div>
+    <div class="marquee">
+      <div class="marquee-content scroll">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/844/original/3.png?1696960764"
+          width="150"
+          class="floatingRamen"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/845/original/4.png?1696960778"
+          width="150"
+          class="floatingRamen"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/846/original/5.png?1696960785"
+          width="150"
+          class="floatingRamen"
+        />
+
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/847/original/6.png?1696960792"
+          width="150"
+          class="floatingRamen"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/848/original/7.png?1696960799"
+          width="150"
+          class="floatingRamen"
+        />
+      </div>
+      <div class="marquee-content scroll">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/844/original/3.png?1696960764"
+          width="150"
+          class="floatingRamen"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/845/original/4.png?1696960778"
+          width="150"
+          class="floatingRamen"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/846/original/5.png?1696960785"
+          width="150"
+          class="floatingRamen"
+        />
+
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/847/original/6.png?1696960792"
+          width="150"
+          class="floatingRamen"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/848/original/7.png?1696960799"
+          width="150"
+          class="floatingRamen"
+        />
+      </div>
+    </div>
+    <!-- LOCATION AND HOURS SECTION-->
+    <div class="locationHours">
+      <div>
+        <h3>Location & Hours</h3>
+        <p>1234 Ramen Street, Montreal, Canada</p>
+
+        <div class="hours">
+          <div class="days">
+            MONDAY<br />
+            TUESDAY<br />
+            WEDNESDAY<br />
+            THURSDAY<br />
+            FRIDAY<br />
+            SATURDAY<br />
+            SUNDAY<br />
+          </div>
+          <div class="time">
+            CLOSED<br />
+            12PM - 11PM<br />
+            12PM - 11PM<br />
+            12PM - 11PM<br />
+            12PM - 11PM<br />
+            12PM - 11PM<br />
+            12PM - 11PM<br />
+          </div>
+        </div>
+      </div>
+      <div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43626.64193767554!2d-73.62698210828125!3d45.49291318360228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a541c64b70d%3A0x654e3138211fefef!2sMontreal%2C%20QC%2C%20Canada!5e0!3m2!1sen!2sro!4v1696960626871!5m2!1sen!2sro"
+          width="400"
+          height="300"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="iframe"
+        ></iframe>
+      </div>
+    </div>
+    <div class="footer">(123) 567-7890<br />info@ramenshop.com</div>
+    <hr />
+
+    <div class="contact">
+      This project was coded by Victoria Popova for <br />the SheCodes
+      Flavourful Food Challenge
+    </div>
+    <div class="icons">
+      <a href="https://www.linkedin.com/in/victoria-popova/" target="_blank">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/955/original/linkedin.png?1697023468"
+          alt="LINKEDIN"
+          width="40"
+      /></a>
+      <a href="https://github.com/vpopova189" target="_blank">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/957/original/Github.png?1697023508"
+          alt="GITHUB"
+          width="40"
+      /></a>
+      <a href="mailto:vpopova189@gmail.com" target="_blank">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/956/original/Mail.png?1697023491"
+          alt="MESSAGE ME"
+          width="40"
+          class="mail"
+      /></a>
+    </div>
+    <script>
+      function orderNow() {
+        let name = prompt("What is your name?");
+        let order = prompt("What is your order?");
+
+        if (name && order) {
+          let button = document.querySelector("button");
+          button.innerHTML = "Hi " + name + "! Your order is ramen-ing!";
+        } else {
+          let button = document.querySelector("button");
+          button.innerHTML = "Sorry! Please try again.";
+        }
+      }
+      let button = document.querySelector("button");
+      button.addEventListener("click", orderNow);
+    </script>
+  </body>
+</html>
